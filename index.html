@@ -37,7 +37,7 @@
       "@id": "https://vmmanutencao.com.br/#business",
       "name": "VM Estruturas Metálicas",
       "alternateName": "VM Manutenção Industrial",
-      "description": "Projeto, fabricação e montagem de galpões industriais e estruturas metálicas em Barueri e Grande SP. Entrega em 120 dias.",
+      "description": "Projeto, fabricação e montagem de galpões industriais e estruturas metálicas em todo o estado de São Paulo. Entrega em 120 dias.",
       "url": "https://vmmanutencao.com.br/estruturas-metalicas",
       "telephone": "+55-11-97232-8541",
       "email": "vmmanutencaoindustrial@gmail.com",
@@ -51,9 +51,11 @@
       },
       "geo": { "@type": "GeoCoordinates", "latitude": -23.5106, "longitude": -46.8761 },
       "areaServed": [
-        { "@type": "City", "name": "Barueri" },
+        { "@type": "State", "name": "São Paulo", "containedInPlace": { "@type": "Country", "name": "Brasil" } },
         { "@type": "City", "name": "São Paulo" },
-        { "@type": "AdministrativeArea", "name": "Grande São Paulo" }
+        { "@type": "AdministrativeArea", "name": "Grande São Paulo" },
+        { "@type": "AdministrativeArea", "name": "Interior de São Paulo" },
+        { "@type": "AdministrativeArea", "name": "Litoral de São Paulo" }
       ],
       "openingHoursSpecification": [
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "18:00" }
@@ -64,7 +66,7 @@
       "@type": "Service",
       "serviceType": "Fabricação e montagem de galpões industriais em estrutura metálica",
       "provider": { "@id": "https://vmmanutencao.com.br/#business" },
-      "areaServed": { "@type": "AdministrativeArea", "name": "Grande São Paulo" },
+      "areaServed": { "@type": "State", "name": "São Paulo - Brasil" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Estruturas metálicas",
@@ -1508,10 +1510,6 @@
     white-space: normal;
     overflow-wrap: break-word;
   }
-  /* Nav drawer: garante que fechado NÃO ocupa espaço */
-  nav .nav-right:not(.open) {
-    pointer-events: none;
-  }
   html, body { max-width: 100vw; overflow-x: clip; }
 
   /* ═══════════════════════════════ CONFIGURADOR ═══════════════════════════════ */
@@ -2109,6 +2107,9 @@
       font-size: 1.1rem;
     }
     .nav-right.open { transform: translateX(0); }
+    /* Drawer fechado: não bloqueia cliques no conteúdo atrás (só em mobile) */
+    .nav-right:not(.open) { pointer-events: none; }
+    .nav-right.open { pointer-events: auto; }
     .nav-right .nav-link {
       padding: 18px 0;
       border-bottom: 1px solid var(--grid);
@@ -2562,7 +2563,7 @@
 
   <div class="intro-meta-top">
     <span><span class="yellow">■</span> VM ESTRUTURAS METÁLICAS / 2026</span>
-    <span>[01] GRANDE SP · INTERIOR</span>
+    <span>[01] SP · INTERIOR · LITORAL</span>
     <span>NBR 8800 · NBR 14762 · NR-18</span>
   </div>
 
@@ -2855,8 +2856,8 @@
 
   <div class="hero-content">
     <div class="hero-top">
-      <span><span class="yellow">►</span> Atendemos toda Grande SP</span>
-      <span>Interior + Litoral</span>
+      <span><span class="yellow">►</span> Atendemos SP inteiro</span>
+      <span>Capital · Grande SP · Interior · Litoral</span>
       <span>ART CREA-SP · NBR 8800</span>
     </div>
 
@@ -3195,7 +3196,7 @@
 <section class="cases-section" id="cases">
   <div class="cases-head">
     <div>
-      <div class="cases-tag">[03] CLIENTES QUE ATENDEMOS</div>
+      <div class="cases-tag">[03] MARCAS QUE CONFIAM</div>
       <h2 class="reveal">Indústrias que<br>nos contratam.</h2>
     </div>
     <p class="reveal">Estamos homologados em plataformas como <b>Ariba</b> e atendemos diretamente empresas do porte de Coca-Cola, Votorantim, ComBio e Ambev. Você assina contrato com a VM — quem aparece no canteiro é a nossa equipe.</p>
@@ -3239,17 +3240,6 @@
       <div class="cert"><div class="cert-seal">NR-18</div><div class="cert-label">Segurança obra</div></div>
       <div class="cert"><div class="cert-seal">NR-35</div><div class="cert-label">Trabalho em altura</div></div>
       <div class="cert"><div class="cert-seal">ART/CREA</div><div class="cert-label">Eng. responsável</div></div>
-    </div>
-
-    <!-- Logos clientes -->
-    <div class="clients-label">■ ATENDEMOS</div>
-    <div class="clients-row">
-      <div class="client-logo">MUNDIAL SA</div>
-      <div class="client-logo">IMPALA</div>
-      <div class="client-logo">EBERLE</div>
-      <div class="client-logo">SYLLENT</div>
-      <div class="client-logo">HERCULES</div>
-      <div class="client-logo">MCPACK</div>
     </div>
 
     <!-- Depoimentos -->
@@ -3322,7 +3312,7 @@
     </div>
     <div class="contact-item">
       <div class="contact-lbl">Atendimento</div>
-      <div class="contact-val">GRANDE SP · INTERIOR</div>
+      <div class="contact-val">ESTADO DE SÃO PAULO</div>
     </div>
     <div class="contact-item">
       <div class="contact-lbl">Resposta</div>
@@ -3445,7 +3435,7 @@
       <details class="faq-item">
         <summary><span class="faq-q">Atendem fora de São Paulo?</span><span class="faq-ic" aria-hidden="true">+</span></summary>
         <div class="faq-a">
-          <p>Atendemos toda <b>Grande SP, ABC, Vale do Paraíba, Sorocaba, Campinas e interior até 250 km</b>. Acima disso, avaliamos por projeto — fabricação acontece na nossa planta e equipe de montagem se desloca. Frete e hospedagem entram no orçamento de forma transparente.</p>
+          <p>Atendemos <b>todo o estado de São Paulo</b> — capital, Grande SP, ABC, Vale do Paraíba, Sorocaba, Campinas, Ribeirão, litoral e interior. Fora do estado, avaliamos por projeto — fabricação acontece na nossa planta e equipe de montagem se desloca. Frete e hospedagem entram no orçamento de forma transparente.</p>
         </div>
       </details>
       <details class="faq-item">
