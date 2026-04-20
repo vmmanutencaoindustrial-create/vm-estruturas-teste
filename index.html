@@ -820,6 +820,98 @@
     .cases-head { grid-template-columns: 1fr; gap: 24px; }
   }
 
+  /* ───── GALERIA DE OBRAS REAIS ───── */
+  .obras-section {
+    background: #0a0a0a;
+    padding: 120px 40px;
+    border-top: 1px solid var(--grid);
+    border-bottom: 1px solid var(--grid);
+  }
+  .obras-head {
+    max-width: 1400px; margin: 0 auto 60px;
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px;
+    align-items: end;
+  }
+  .obras-head h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    margin-top: 20px;
+  }
+  .obras-head p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem; line-height: 1.55;
+    color: rgba(250,250,250,0.68);
+  }
+  .obras-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.24em;
+    color: var(--yellow); text-transform: uppercase;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .obras-tag::before { content: ''; width: 36px; height: 2px; background: var(--yellow); }
+
+  .obras-grid {
+    max-width: 1400px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: 2px;
+    background: var(--grid);
+    border: 1px solid var(--grid);
+  }
+  .obra-card {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    background: #000;
+    cursor: default;
+  }
+  .obra-card.obra-big {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .obra-card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.3s ease;
+    filter: saturate(0.95) brightness(0.9);
+  }
+  .obra-card:hover img { transform: scale(1.04); filter: saturate(1) brightness(1); }
+  .obra-card figcaption {
+    position: absolute; inset: auto 0 0 0;
+    padding: 20px 24px;
+    background: linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.92) 55%);
+    transform: translateY(calc(100% - 72px));
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .obra-card:hover figcaption { transform: translateY(0); }
+  .obra-card .obra-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem; letter-spacing: 0.2em;
+    color: var(--yellow);
+    display: inline-block; margin-bottom: 8px;
+  }
+  .obra-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; line-height: 1.05;
+    letter-spacing: 0.02em; color: var(--fg);
+    margin-bottom: 8px;
+  }
+  .obra-card p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; line-height: 1.5;
+    color: rgba(250,250,250,0.75);
+  }
+  @media (max-width: 900px) {
+    .obras-section { padding: 80px 20px; }
+    .obras-head { grid-template-columns: 1fr; gap: 20px; }
+    .obras-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+    .obra-card.obra-big { grid-column: span 1; grid-row: span 1; }
+    .obra-card figcaption { transform: translateY(0); background: linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.95) 40%); }
+  }
+
   /* ───── CLIENTES (logos em grid brutalist) ───── */
   .clients-wall {
     display: grid;
@@ -2899,13 +2991,11 @@
       <div class="phase-img" data-phase="0" data-src="assets/galpao-fase-01.jpg"></div>
       <div class="phase-img" data-phase="1" data-src="assets/galpao-fase-02.jpg"></div>
       <div class="phase-img" data-phase="2" data-src="assets/galpao-fase-03.jpg"></div>
-      <!-- Fase 04 (VIGAS & TESOURAS): foto real VM — treliça metálica montada -->
-      <div class="phase-img" data-phase="3" data-src="assets/vm-obras/vm-tesouras.jpg"></div>
+      <div class="phase-img" data-phase="3" data-src="assets/galpao-fase-04.jpg"></div>
       <div class="phase-img" data-phase="4" data-src="assets/galpao-fase-05.jpg"></div>
-      <!-- Fase 06 (fechamento): estrutura pronta iluminada — real VM -->
-      <div class="phase-img" data-phase="5" data-src="assets/vm-obras/vm-estrutura-noturna.jpg"></div>
-      <!-- Fase 07 (ENTREGA): interior pronto, piso polido — real VM -->
-      <div class="phase-img" data-phase="6" data-src="assets/vm-obras/vm-interior-polido.jpg"></div>
+      <div class="phase-img" data-phase="5" data-src="assets/galpao-fase-06.jpg"></div>
+      <!-- Fase 07 (entrega): mesmo galpão das fases anteriores — continuidade visual -->
+      <div class="phase-img" data-phase="6" data-src="assets/galpao-fase-06.jpg"></div>
 
       <!-- Technical blueprint overlay (draws per phase) -->
       <svg class="blueprint" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
@@ -3194,11 +3284,57 @@
   </div>
 </section>
 
-<!-- ───── CASES ───── -->
+<!-- ───── GALERIA DE OBRAS REAIS ───── -->
+<section class="obras-section" id="obras">
+  <div class="obras-head">
+    <div>
+      <div class="obras-tag">[03] GALPÕES QUE A VM ERGUEU</div>
+      <h2 class="reveal">Obra real.<br>Entregue em pé.</h2>
+    </div>
+    <p class="reveal">Fotos reais de galpões fabricados e montados pela nossa equipe. Nada de render, nada de foto genérica — estes são projetos em operação hoje.</p>
+  </div>
+
+  <div class="obras-grid">
+    <figure class="obra-card obra-big">
+      <img src="assets/vm-obras/vm-fachada.jpg" alt="Galpão industrial com fachada cinza entregue pela VM" loading="lazy">
+      <figcaption>
+        <span class="obra-tag">■ ENTREGUE</span>
+        <h3>Galpão industrial · Fachada termoacústica</h3>
+        <p>Estrutura metálica + painéis sanduíche + portão de enrolar. Obra concluída com equipe própria.</p>
+      </figcaption>
+    </figure>
+    <figure class="obra-card">
+      <img src="assets/vm-obras/vm-interior-polido.jpg" alt="Interior de galpão com piso polido e vigas estruturais azuis" loading="lazy">
+      <figcaption>
+        <span class="obra-tag">■ ENTREGUE</span>
+        <h3>Piso polido · Vão livre</h3>
+        <p>Piso epóxi nível A, pé-direito elevado, clarabóias translúcidas e estrutura pintada.</p>
+      </figcaption>
+    </figure>
+    <figure class="obra-card">
+      <img src="assets/vm-obras/vm-estrutura-noturna.jpg" alt="Estrutura metálica iluminada em operação noturna" loading="lazy">
+      <figcaption>
+        <span class="obra-tag">■ EM OPERAÇÃO</span>
+        <h3>Iluminação LED industrial</h3>
+        <p>Operação 24/7 com iluminação LED industrial + cobertura metálica. Projeto completo chave na mão.</p>
+      </figcaption>
+    </figure>
+    <figure class="obra-card">
+      <img src="assets/vm-obras/vm-tesouras.jpg" alt="Treliça metálica de grande vão montada pela VM Estruturas" loading="lazy">
+      <figcaption>
+        <span class="obra-tag">■ EM MONTAGEM</span>
+        <h3>Treliça · Grande vão livre</h3>
+        <p>Tesouras metálicas Pratt soldadas MIG/MAG, içadas e montadas em campo.</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ───── CLIENTES / LOGOS ───── -->
 <section class="cases-section" id="cases">
   <div class="cases-head">
     <div>
-      <div class="cases-tag">[03] MARCAS QUE CONFIAM</div>
+      <div class="cases-tag">[04] MARCAS QUE CONFIAM</div>
       <h2 class="reveal">Indústrias que<br>nos contratam.</h2>
     </div>
     <p class="reveal">Estamos homologados em plataformas como <b>Ariba</b> e atendemos diretamente empresas do porte de Coca-Cola, Votorantim, ComBio e Ambev. Você assina contrato com a VM — quem aparece no canteiro é a nossa equipe.</p>
